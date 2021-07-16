@@ -1,62 +1,89 @@
 <script>
-    import NavBar from '../../components/ultra-navbar.svelte';
+    import Hero from './page-components/home-hero.svelte';
+
 </script>
 
 <style>
+
     #main-page {
         position: relative;
     }
 
-    #hero-container {
-        height: 75vh;
-        background: url("images/cdc-usplash.cleaing.jpg");
-        background-size: cover;
-        background-position: center;
-        color: white;
-        transition: all 0.5s ease-in-out;
-        clip-path: polygon(100% 0%, 0% 0% , 0% 60%, 1% 60%, 2% 59.95%, 3% 59.9%, 4% 59.85%, 5% 59.75%, 6% 59.65%, 7% 59.55%, 8% 59.4%, 9% 59.25%, 10% 59.05%, 11% 58.9%, 12% 58.65%, 13% 58.45%, 14% 58.2%, 15% 57.95%, 16% 57.7%, 17% 57.4%, 18% 57.1%, 19% 56.8%, 20% 56.45%, 21% 56.1%, 22% 55.75%, 23% 55.4%, 24% 55.05%, 25% 54.65%, 26% 54.25%, 27% 53.85%, 28% 53.45%, 29% 53.05%, 30% 52.65%, 31% 52.2%, 32% 51.8%, 33% 51.35%, 34% 50.9%, 35% 50.5%, 36% 50.05%, 37% 49.6%, 38% 49.2%, 39% 48.75%, 40% 48.3%, 41% 47.9%, 42% 47.45%, 43% 47.05%, 44% 46.65%, 45% 46.25%, 46% 45.85%, 47% 45.45%, 48% 45.05%, 49% 44.7%, 50% 44.35%, 51% 44%, 52% 43.65%, 53% 43.3%, 54% 43%, 55% 42.7%, 56% 42.4%, 57% 42.1%, 58% 41.85%, 59% 41.6%, 60% 41.4%, 61% 41.15%, 62% 41%, 63% 40.8%, 64% 40.65%, 65% 40.5%, 66% 40.35%, 67% 40.25%, 68% 40.15%, 69% 40.1%, 70% 40.05%, 71% 40%, 72% 40%, 73% 40%, 74% 40.05%, 75% 40.05%, 76% 40.15%, 77% 40.2%, 78% 40.3%, 79% 40.45%, 80% 40.55%, 81% 40.7%, 82% 40.9%, 83% 41.05%, 84% 41.3%, 85% 41.5%, 86% 41.75%, 87% 42%, 88% 42.25%, 89% 42.55%, 90% 42.85%, 91% 43.15%, 92% 43.45%, 93% 43.8%, 94% 44.15%, 95% 44.5%, 96% 44.85%, 97% 45.25%, 98% 45.65%, 99% 46.05%, 100% 46.45%);
-    }
-    
-    #hero-container:hover {
-        clip-path: polygon(100% 0%, 0% 0% , 0% 52.5%, 1% 52.5%, 2% 52.5%, 3% 52.5%, 4% 52.45%, 5% 52.45%, 6% 52.4%, 7% 52.4%, 8% 52.35%, 9% 52.3%, 10% 52.25%, 11% 52.2%, 12% 52.15%, 13% 52.1%, 14% 52.05%, 15% 52%, 16% 51.9%, 17% 51.85%, 18% 51.75%, 19% 51.7%, 20% 51.6%, 21% 51.55%, 22% 51.45%, 23% 51.35%, 24% 51.25%, 25% 51.15%, 26% 51.05%, 27% 50.95%, 28% 50.85%, 29% 50.75%, 30% 50.65%, 31% 50.55%, 32% 50.45%, 33% 50.35%, 34% 50.25%, 35% 50.1%, 36% 50%, 37% 49.9%, 38% 49.8%, 39% 49.7%, 40% 49.6%, 41% 49.45%, 42% 49.35%, 43% 49.25%, 44% 49.15%, 45% 49.05%, 46% 48.95%, 47% 48.85%, 48% 48.75%, 49% 48.65%, 50% 48.6%, 51% 48.5%, 52% 48.4%, 53% 48.35%, 54% 48.25%, 55% 48.15%, 56% 48.1%, 57% 48.05%, 58% 47.95%, 59% 47.9%, 60% 47.85%, 61% 47.8%, 62% 47.75%, 63% 47.7%, 64% 47.65%, 65% 47.6%, 66% 47.6%, 67% 47.55%, 68% 47.55%, 69% 47.55%, 70% 47.5%, 71% 47.5%, 72% 47.5%, 73% 47.5%, 74% 47.5%, 75% 47.5%, 76% 47.55%, 77% 47.55%, 78% 47.6%, 79% 47.6%, 80% 47.65%, 81% 47.7%, 82% 47.7%, 83% 47.75%, 84% 47.8%, 85% 47.85%, 86% 47.95%, 87% 48%, 88% 48.05%, 89% 48.15%, 90% 48.2%, 91% 48.3%, 92% 48.35%, 93% 48.45%, 94% 48.55%, 95% 48.65%, 96% 48.7%, 97% 48.8%, 98% 48.9%, 99% 49%, 100% 49.1%);
+    .center-section {
+        text-transform: capitalize;
+        text-align: center;
+        font-size: 2.6rem;
     }
 
-    #hero-blue-filter {
-        background: rgba(0, 147, 206, 0.6);
+    #why-ultra-janitorial {
+        height: 40vh;
+    }
+
+    .leads-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5vh;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+
+    .lead {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 22%;
+        min-height: 20vh;
+        font-size: 1.4rem;
+    }
+
+    .lead-name {
+        height: 10vh;
         width: 100%;
-        height: inherit;
-    }
-    
-
-    #hero-content {
-        padding: 5vh 5vw;
-    }
-
-    #hero-text h1{ 
-        color: var(--theme-color);
-        font-size: 2.5vw;
-    }
-    
-    #hero-text p{
-        width: 90%;
-        font-size: 1.5rem;
-        margin: 2vh auto 0 auto;
+        font-size: 1.8em;
+        font-weight: bold;
+        text-align: center;
     }
 
 </style>
 
-<div id="main-page">
-    <NavBar/>
-    <div id="hero-container">
-        <div id="hero-blue-filter">
-            <div id="hero-content">
-                <div id="hero-text">
-                    <h1>Welcome to Ultra Janitorial</h1>
-                    <p>
-                        We are professionals, trained in proper way to clean, dust, and sanitize any office space. We know that having a clean office is more than just being organized, we know the way to give our customers offices a clean environment it needs. We value or customers the same way we value or team. we service each of our customers as unique 
-                    </p>
-                </div>
+<div id="main-page" class="page-with-nav">
+    <Hero/>
+    <!--Why ultra janitorial section-->
+    <section id="why-ultra-janitorial">
+        <h2 class="title-text center-section">Why ultra janitorial?</h2>
+        <div class="leads-container">
+            <div class="lead">
+                <h3 class="lead-name">
+                    <span class="lead-name-text">
+                        Integrity
+                    </span>
+                </h3>
+                <p class="lead-text">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
+                </p>
+            </div>
+            <div class="lead">
+                <h3 class="lead-name">
+                    <span class="lead-name-text">
+                        Familiarity with Material Safety Data Sheets (MSDS)
+                    </span>
+                </h3>
+                <p class="lead-text">
+                    We know that the most important thing in the world is to know how to use it. So we're super happy with the MSDS.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
+                </p>
+            </div>
+            <div class="lead">
+                <h3 class="lead-name">
+                    <span class="lead-name-text">
+                        Knowledge of cleaning chemicals and supplies
+                    </span>
+                </h3>
+                <p class="lead-text">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
+                    We know that cleaning is a very important thing in the world. So we're super happy with cleaning supplies.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 </div>
