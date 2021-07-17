@@ -1,15 +1,18 @@
 <script>
     import NavBar from './components/ultra-navbar.svelte';
+    import Footer from './components/Footer.svelte';
     import Router from 'svelte-spa-router';
     import { routes } from './routes';
 </script>
 
 <style>
-    @import url(//db.onlinewebfonts.com/c/58aaccbcd294a88d9b91af291895060d?family=GatsbyFLF);
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+    @import url(//db.onlinewebfonts.com/c/58aaccbcd294a88d9b91af291895060d?family=GatsbyFLF);
 
     :global(:root) {
         --theme-color: #FF9900;
+        --sencondary-color: #009CBE;
+        --dark-color: #D8790A;
         --main-font: GatsbyFLF;
         --title-font: Abril Fatface, sans-serif;
     }    
@@ -46,4 +49,5 @@
 <div id="main-component">
     <NavBar/>
     <Router {routes} />
+    <Footer/>
 </div>

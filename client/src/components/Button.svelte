@@ -12,6 +12,7 @@
     export let padding = "0 5%";
     export let width = "100%";
     export let button_color = "var(--theme-color)";
+    export let font_color = "white";
     
     export let onClick = () => {};
     
@@ -112,7 +113,7 @@
 
 </style>
 
-<div style="font-size: {font_size};width: {width}; background: {button_color}; padding: {padding};" on:click={isEnabled ?  onClick : ()=>{}}
+<div style="color: {font_color};font-size: {font_size};width: {width}; background: {button_color}; padding: {padding};" on:click={isEnabled ?  onClick : ()=>{}}
     class={composeClassName()}>
         {label}
 </div>
