@@ -62,7 +62,7 @@
 
 <div bind:this={self} on:scroll={addSticky} id="uj-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div id="ultra-janitorial-nav-logo">
-        <a href="#uj-navbar">
+        <a href="#/">
             {@html ultra_janitorial_logo}
         </a>
     </div>
@@ -71,7 +71,9 @@
             Services
         </span>
         <span class="nav-content">
-            Contact
+            <a href="#/contact">
+                Contact
+            </a>
         </span>
         <span class="nav-content">
             About

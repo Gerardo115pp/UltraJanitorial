@@ -1,5 +1,6 @@
 <script>
     import Button from '../../../components/Button.svelte';
+    import { push } from 'svelte-spa-router';
 </script>
 
 <style>
@@ -86,7 +87,7 @@
                 </p>
             </div>
             <div id="contact-btn-container">
-                <Button width="10vw" padding="1vh 1vw" font_size="2rem" label={"CONTACT"} extraClasses="popper"/>
+                <Button onClick={() => push("/contact")} width="10vw" padding="1vh 1vw" font_size="2rem" label={"CONTACT"} extraClasses="popper"/>
             </div>
         </div>
     </div>

@@ -11,8 +11,9 @@
 
     :global(:root) {
         --theme-color: #FF9900;
-        --sencondary-color: #009CBE;
+        --secondary-color: #009CBE;
         --dark-color: #D8790A;
+        --theme-gradiant: linear-gradient(309deg, rgba(253,190,0,1) 0%, rgba(255,153,0,1) 100%);
         --main-font: GatsbyFLF;
         --title-font: Abril Fatface, sans-serif;
     }    
@@ -40,6 +41,7 @@
     #main-component {
         color: var(--theme-color);
     }
+
 </style>
 
 <svelte:head>
@@ -48,6 +50,8 @@
 
 <div id="main-component">
     <NavBar/>
-    <Router {routes} />
+    <div id="content-wrap">
+        <Router {routes} />
+    </div>
     <Footer/>
 </div>
