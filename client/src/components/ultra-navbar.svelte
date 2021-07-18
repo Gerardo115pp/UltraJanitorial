@@ -68,7 +68,9 @@
     </div>
     <div id="right-content">
         <span class="nav-content">
-            Services
+            <a href="#/services">
+                Services
+            </a>
         </span>
         <span class="nav-content">
             <a href="#/contact">
@@ -76,7 +78,9 @@
             </a>
         </span>
         <span class="nav-content">
-            About
+            <a href="#/about">
+                About
+            </a>
         </span>
     </div>
 </div>

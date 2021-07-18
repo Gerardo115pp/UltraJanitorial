@@ -14,8 +14,12 @@
     export let button_color = "var(--theme-color)";
     export let font_color = "white";
     
-    export let onClick = () => {};
+
     
+    export let onClick = () => {};
+
+    export let self_ref = null;
+
     const composeClassName = () => {
         let class_name = "control-btn"
         // Red class
@@ -113,7 +117,7 @@
 
 </style>
 
-<div style="color: {font_color};font-size: {font_size};width: {width}; background: {button_color}; padding: {padding};" on:click={isEnabled ?  onClick : ()=>{}}
+<div bind:this={self_ref} style="color: {font_color};font-size: {font_size};width: {width}; background: {button_color}; padding: {padding};" on:click={isEnabled ?  onClick : ()=>{}}
     class={composeClassName()}>
         {label}
 </div>

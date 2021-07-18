@@ -6,7 +6,7 @@
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
     @import url(//db.onlinewebfonts.com/c/58aaccbcd294a88d9b91af291895060d?family=GatsbyFLF);
 
     :global(:root) {
@@ -15,7 +15,7 @@
         --dark-color: #D8790A;
         --theme-gradiant: linear-gradient(309deg, rgba(253,190,0,1) 0%, rgba(255,153,0,1) 100%);
         --main-font: GatsbyFLF;
-        --title-font: Abril Fatface, sans-serif;
+        --title-font: Limelight, sans-serif;
     }    
 
     /*=============================================
@@ -40,6 +40,10 @@
     
     #main-component {
         color: var(--theme-color);
+    }
+
+    #content-wrap {
+        min-height: 63vh;
     }
 
 </style>
