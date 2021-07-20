@@ -6,7 +6,18 @@
     import Button from '../../components/Button.svelte';
     import { push } from 'svelte-spa-router';
     import { lorem } from '../../Utilitys';
+    import Txy, { txy_events } from '../../TxySvelte/Txy';
+    import { onMount } from 'svelte';
+    
 
+    const PAGE_NAME = "main";
+
+    let page_content = {};
+
+    $: console.log(page_content);
+    onMount(() => {
+        Txy.setPageName(PAGE_NAME);
+    });
 
     const scrollToTop = () => {
         window.scrollTo(0, 0);

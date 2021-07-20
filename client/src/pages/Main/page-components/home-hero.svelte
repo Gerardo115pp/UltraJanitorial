@@ -1,6 +1,16 @@
 <script>
+    // Txy imports
+    import TxyText from '../../../TxySvelte/TxyText.svelte';
+    import Txy from '../../../TxySvelte/Txy'
+
     import Button from '../../../components/Button.svelte';
     import { push } from 'svelte-spa-router';
+
+    const txy_keys = {
+        title: "hero-title"
+    }
+
+import { lorem } from '../../../Utilitys';
 </script>
 
 <style>
@@ -82,6 +92,7 @@
         <div id="hero-content">
             <div id="hero-text">
                 <h1>Welcome to Ultra Janitorial</h1>
+                <TxyText isHeader={true} fallback={lorem(50)} content_key={txy_keys.title}/>
                 <p>
                     We are professionals, trained in proper way to clean, dust, and sanitize any office space. We know that having a clean office is more than just being organized, we know the way to give our customers offices a clean environment it needs. We value or customers the same way we value or team. we service each of our customers as unique 
                 </p>
