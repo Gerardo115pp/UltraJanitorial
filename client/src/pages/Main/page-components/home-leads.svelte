@@ -1,6 +1,22 @@
+<script>
+    import TxyText from '../../../TxySvelte/txy_components/TxyText.svelte';
+import { lorem } from '../../../Utilitys';
+
+    const txy_keys = {
+        why_ultra: 'leads-why-ultra',
+        lead_I_title: 'lead-I-title',
+        lead_I_text: 'lead-I-text',
+        lead_II_title: 'lead-II-title',
+        lead_II_text: 'lead-II-text',
+        lead_III_title: 'lead-III-title',
+        lead_III_text: 'lead-III-text'
+    };
+
+</script>
+
 <style>
-        #why-ultra-janitorial {
-        height: 50vh;
+    #why-ultra-janitorial {
+        max-height: 60vh;
     }
 
     .leads-container {
@@ -28,44 +44,57 @@
         text-align: center;
     }
 
-    .lead p {
-        color: var(--sencondary-color);
+    .lead-text {
+        color: var(--secondary-color);
     }
 </style>
 
 <section id="why-ultra-janitorial">
-    <h2 class="title-text center-section">Why ultra janitorial?</h2>
+    <h2 class="title-text center-section">
+        <TxyText fallback={"Why Ultra Janitorial"} content_key={txy_keys.why_ultra}/>
+    </h2>
     <div class="leads-container">
         <div class="lead">
             <h3 class="lead-name">
                 <span class="lead-name-text">
-                    Integrity
+                    <TxyText fallback={"Integrity"} content_key={txy_keys.lead_I_title}/>
                 </span>
             </h3>
             <p class="lead-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
+                <TxyText fallback={lorem(50)} content_key={txy_keys.lead_I_text}/>
             </p>
         </div>
         <div class="lead">
             <h3 class="lead-name">
                 <span class="lead-name-text">
-                    Familiarity with Material Safety Data Sheets (MSDS)
+                    <TxyText 
+                        fallback={"Familiarity with Material Safety Data Sheets (MSDS)"} 
+                        content_key={txy_keys.lead_II_title}
+                    />
+                    
                 </span>
             </h3>
             <p class="lead-text">
-                We know that the most important thing in the world is to know how to use it. So we're super happy with the MSDS.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
+                <TxyText 
+                    fallback={"We know that the most important thing in the world is to know how to use it. So we're super happy with the MSDS. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo."} 
+                    content_key={txy_keys.lead_II_text}
+                />
             </p>
         </div>
         <div class="lead">
             <h3 class="lead-name">
                 <span class="lead-name-text">
-                    Knowledge of cleaning chemicals and supplies
+                    <TxyText
+                        fallback={"Knowledge of cleaning chemicals and supplies"}
+                        content_key={txy_keys.lead_III_title}
+                    />
                 </span>
             </h3> 
             <p class="lead-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nulla quibusdam dignissimos, earum soluta est eum, obcaecati impedit voluptates expedita fuga illo, atque quisquam debitis error recusandae exercitationem praesentium? Tempora atque nulla ducimus sequi facere nemo odio, corrupti eos cupiditate, natus voluptatem rerum. Aperiam, obcaecati! Aut ab fuga sequi illo.
-                We know that cleaning is a very important thing in the world. So we're super happy with cleaning supplies.
+                <TxyText
+                    fallback={lorem(50)}
+                    content_key={txy_keys.lead_III_text}
+                />                
             </p>
         </div>
     </div>

@@ -1,4 +1,7 @@
 <script>
+    import TxyText from '../../../TxySvelte/txy_components/TxyText.svelte';
+    import TxyImage from '../../../TxySvelte/txy_components/TxyImage.svelte';
+
     export let image_url = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
     export let service_name = 'ultra janitorial';
     export let service_description = 'A tool to help you keep your files clean.';
@@ -37,7 +40,7 @@
         width: 80vw;
     }
 
-    .service-descriptor-image img {
+    :global(.service-descriptor-image img) {
         width: 100%;
         clip-path: circle(40%);
     }
@@ -46,14 +49,14 @@
         margin-right: 10vw;
     }
 
-    .flipped .service-descriptor-text {
+    :global(.flipped .service-descriptor-text) {
         margin-right: 0;
         margin-left: 10vw;
     }
 
-    .service-descriptor-text {
+    :global(.service-descriptor-text) {
         font-size: 1.5em;
-        color: var(--sencondary-color);
+        color: var(--secondary-color);
         text-indent: 2em;
         text-align: center;
     }
@@ -61,9 +64,13 @@
 
 <div class="{classNameComposer()}">
     <div class="service-descriptor-image">
-        <img src="{image_url}" alt="{service_name}">
+        <TxyImage fallback={image_url} content_key="{service_name}-image" />
     </div>
     <div class="service-descriptor-content">
-        <p class="service-descriptor-text">{service_description}</p>
+        <TxyText
+            fallback={service_description}
+            content_key={service_name}
+            extra_classes="service-descriptor-text"
+        />
     </div>
 </div>

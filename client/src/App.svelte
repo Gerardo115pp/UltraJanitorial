@@ -1,4 +1,5 @@
 <script>
+    import TxyContent from './TxySvelte/TxyContentGetter.svelte';
     import NavBar from './components/ultra-navbar.svelte';
     import Footer from './components/Footer.svelte';
     import Router from 'svelte-spa-router';
@@ -7,7 +8,11 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-    @import url(//db.onlinewebfonts.com/c/58aaccbcd294a88d9b91af291895060d?family=GatsbyFLF);
+
+    @font-face {
+        font-family: 'GatsbyFLF';
+        src: url('fonts/58aaccbcd294a88d9b91af291895060d.woff2');
+    }
 
     :global(:root) {
         --theme-color: #FF9900;
@@ -52,6 +57,7 @@
     <link type="text/css" rel="stylesheet" href="normalize.css" />
 </svelte:head>
 
+<TxyContent font_family="var(--main-font)" theme_color="var(--theme-color)"/>
 <div id="main-component">
     <NavBar/>
     <div id="content-wrap">

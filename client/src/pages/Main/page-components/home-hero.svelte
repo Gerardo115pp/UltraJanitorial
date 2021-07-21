@@ -1,13 +1,13 @@
 <script>
     // Txy imports
-    import TxyText from '../../../TxySvelte/TxyText.svelte';
-    import Txy from '../../../TxySvelte/Txy'
+    import TxyText from '../../../TxySvelte/txy_components/TxyText.svelte';
 
     import Button from '../../../components/Button.svelte';
     import { push } from 'svelte-spa-router';
 
     const txy_keys = {
-        title: "hero-title"
+        title: "hero-title",
+        subtitle: "hero-subtitle",
     }
 
 import { lorem } from '../../../Utilitys';
@@ -55,12 +55,12 @@ import { lorem } from '../../../Utilitys';
         user-select: none;
     }
 
-    #hero-text h1{ 
+    :global(#hero-text .hero-title){ 
         color: var(--theme-color);
         font-size: 2.5vw;
     }
     
-    #hero-text p{
+    :global(#hero-text p){
         width: 90%;
         font-size: 1.5rem;
         margin: 2vh auto 0 auto;
@@ -91,11 +91,8 @@ import { lorem } from '../../../Utilitys';
     <div id="hero-blue-filter">
         <div id="hero-content">
             <div id="hero-text">
-                <h1>Welcome to Ultra Janitorial</h1>
-                <TxyText isHeader={true} fallback={lorem(50)} content_key={txy_keys.title}/>
-                <p>
-                    We are professionals, trained in proper way to clean, dust, and sanitize any office space. We know that having a clean office is more than just being organized, we know the way to give our customers offices a clean environment it needs. We value or customers the same way we value or team. we service each of our customers as unique 
-                </p>
+                <TxyText extra_classes="hero-title" isHeader={true} fallback={lorem(50)} content_key={txy_keys.title}/>
+                <TxyText isHeader={false} fallback={lorem(50)} content_key={txy_keys.subtitle}/>
             </div>
             <div id="contact-btn-container">
                 <Button onClick={() => push("/contact")} width="10vw" padding="1vh 1vw" font_size="2rem" label={"CONTACT"} extraClasses="popper"/>
