@@ -1,11 +1,25 @@
 <script>
     import CleaningStep from './page-components/cleaing-step.svelte';
+    import step_logo_III from '../../images/Icons/CleaningIII.svg';
+    import step_logo_II from '../../images/Icons/CleaningII.svg';
+    import step_logo_I from '../../images/Icons/CleaningI.svg';
     import Button from '../../components/Button.svelte';
+    import TxyText from '../../TxySvelte/txy_components/TxyText.svelte';
+    import { onMount, onDestroy } from 'svelte';
     import { push } from 'svelte-spa-router';
     import { lorem } from '../../Utilitys';
-    import step_logo_I from '../../images/Icons/CleaningI.svg';
-    import step_logo_II from '../../images/Icons/CleaningII.svg';
-    import step_logo_III from '../../images/Icons/CleaningIII.svg';
+    import Txy from '../../TxySvelte/Txy';
+    
+
+    const PAGE_NAME = "services";
+    
+    onMount(() => {
+        Txy.setPageName(PAGE_NAME);
+    });
+
+    onDestroy(() => {
+        Txy.unsetPage();
+    });
 
     let contact_button = null;
 
@@ -39,97 +53,173 @@
         }
     }
 
-    #services-header {
-        height: 30vh;
-        padding: 5vh 10vh;
-    }
+    
+    /*=============================================
+    =            BaseStyle            =
+    =============================================*/
+    
+        #services-header {
+            height: 30vh;
+            padding: 5vh 10vh;
+        }
+    
+        #sh-title {
+            background-image: linear-gradient(90deg, #D8790A 0%, #FF9900 30%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+        }
+    
+        #sh-sub-title {
+            font-size: 1.9em;
+            color: var(--secondary-color);
+            text-indent: .1em;
+        }
+        
+        #header-contact-btn-wrapper {
+            margin-top: 5vh;
+        }
+        
+        :global(.services-contact-btn) {
+            width: 10vw;
+        }
 
-    #sh-title {
-        background-image: linear-gradient(90deg, #D8790A 0%, #FF9900 30%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        font-size: 3.5em;
-        text-transform: uppercase;
-        -webkit-text-fill-color: transparent;
-        -moz-text-fill-color: transparent;
-    }
+        :global(.accelerable-btn) {
+            animation: accelerate .5s !important;
+            animation-iteration-count: 1 !important;
+            animation-fill-mode: forwards !important;
+        }
+    
+        #service-information {
+            height: 110vh;
+            background-color: papayawhip;
+        }
+    
+        #service-callout {
+            height: 30vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30vh;
+        }
+    
+        #service-callout-title {
+            font-family: var(--title-font);
+            font-size: 1.5em;
+        }
+    
+        #service-callout-description {
+            width: 60%;
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+    
+        #how-we-work {
+            margin: 6vh 0 4vh;
+        }
+    
+        #how-we-work-title {
+            text-align: center;
+            font-size: 1.5em;
+        }
+    
+        #hww-divisor {
+            display: flex;
+            justify-content: center;
+        }
+    
+        #hww-divisor-squares {
+            display: flex;
+            width: 8vw;
+            margin: 2vh 0;
+            justify-content: space-around;
+        }
+    
+        .hww-divisor-square {
+            background-color: var(--theme-color);
+            width: 1em;
+            height: 1em;
+            transform: rotate(45deg);
+        }
+    
+        #hww-steps {
+            height: 50vh;
+            display: flex;
+            padding: 5vh 5vw;
+            align-items: center;
+            justify-content: space-around;
+        }
 
-    #sh-sub-title {
-        font-size: 1.9em;
-        color: var(--secondary-color);
-        text-indent: .1em;
+        :global(.hww-step) {
+            width: 20%
+        }
+    /*=====  End of BaseStyle  ======*/
+    
+
+    
+    /*=============================================
+    =            MobileSupport            =
+    =============================================*/
+    
+    @media only screen and (max-width: 800px) {
+        #services-header {
+            height: 40vh;
+            padding: 5vh;
+        }
+
+        #sh-sub-title {
+            text-indent: .8em;
+        }
+
+        :global(.services-contact-btn) {
+            width: 40vw;
+        }
+
+        #service-information {
+            height: 235vh;
+        }
+
+        #service-callout {
+            height: auto;
+            flex-direction: column;
+            padding: 5vh 2vw;
+        }
+
+        #service-callout-description {
+            width: 80%;
+        }
+
+        #hww-divisor-squares {
+            width: 20%;
+        }
+
+        .hww-divisor-square {
+            width: 2.5vw;
+            height: 1.5vh;
+        }
+
+        #hww-steps { 
+            height: 140vh;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        :global(.hww-step) {
+            width: 80%;
+        }
+
+
     }
     
-    #header-contact-btn-wrapper {
-        margin-top: 5vh;
-    }
+    /*=====  End of MobileSupport  ======*/
+    
 
-    :global(.accelerable-btn) {
-        animation: accelerate .5s !important;
-        animation-iteration-count: 1 !important;
-        animation-fill-mode: forwards !important;
-    }
-
-    #service-information {
-        height: 110vh;
-        background-color: papayawhip;
-    }
-
-    #service-callout {
-        height: 30vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 30vh;
-    }
-
-    #service-callout-title {
-        font-family: var(--title-font);
-        font-size: 1.5em;
-    }
-
-    #service-callout-description {
-        width: 60%;
-        font-size: 1.4em;
-        color: var(--secondary-color);
-        text-align: center;
-    }
-
-    #how-we-work {
-        margin: 6vh 0 4vh;
-    }
-
-    #how-we-work-title {
-        text-align: center;
-        font-size: 1.5em;
-    }
-
-    #hww-divisor {
-        display: flex;
-        justify-content: center;
-    }
-
-    #hww-divisor-squares {
-        display: flex;
-        width: 8vw;
-        margin: 2vh 0;
-        justify-content: space-around;
-    }
-
-    .hww-divisor-square {
-        background-color: var(--theme-color);
-        width: 1em;
-        height: 1em;
-        transform: rotate(45deg);
-    }
-
-    #hww-steps {
-        height: 50vh;
-        display: flex;
-        padding: 5vh 5vw;
-        align-items: center;
-        justify-content: space-around;
-    }
+    
 </style>
 
 <div id="services-page">
@@ -137,10 +227,16 @@
         <div id="sh-content-wraper">
             <div id="header-title">
                 <div id="sh-title">
-                    PROFESIONAL CLEAING
+                    <TxyText
+                        content_key="services_header_title"
+                        fallback="PROFESIONAL CLEAING"
+                    />
                 </div>
                 <div id="sh-sub-title">
-                    and a promise of satisfaction
+                    <TxyText
+                        content_key="services_header_subtitle"
+                        fallback="and a promise of satisfaction"
+                    />
                 </div>
             </div>
             <div id="header-contact-btn-wrapper">
@@ -153,7 +249,7 @@
                         font_size="2em" 
                         button_color="var(--theme-gradiant)" 
                         padding="1vh 1vw"
-                        width="10vw"
+                        extraClasses="services-contact-btn"
                     />
                 </div>
             </div>
@@ -168,8 +264,10 @@
             </div>
             <div id="service-callout-description">
                 <p>
-                    We provide a variety of services to help you clean your buissnes, from small home cleaning to full-service floor cleaning.
-                    {lorem(100)}
+                    <TxyText
+                        content_key="service-callout-description"
+                        fallback="We provide a variety of services to help you clean your buissnes, from small home cleaning to full-service floor cleaning."
+                    />
                 </p>
             </div>
         </div>
@@ -189,19 +287,19 @@
                     step_icon={step_logo_I}
                     step_name="Cleaing step I"
                     step_description="{lorem(40)}"
-                    width="20vw"
+                    extraClasses="hww-step"
                 />
                <CleaningStep 
                     step_icon={step_logo_II}
                     step_name="Cleaing step II"
                     step_description="{lorem(40)}"
-                    width="20vw"
+                    extraClasses="hww-step"
                 />
                <CleaningStep 
                     step_icon={step_logo_III}
-                    step_name="Cleaing step I"
+                    step_name="Cleaing step III"
                     step_description="{lorem(40)}"
-                    width="20vw"
+                    extraClasses="hww-step"
                 />
            </div>
         </div>

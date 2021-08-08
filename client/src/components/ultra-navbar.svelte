@@ -5,7 +5,7 @@
 
     const addSticky = () => {
         if (self) {
-            const isAtBottom = window.pageYOffset > self.offsetTop
+            const isAtBottom = window.pageYOffset > self.offsetTop;
             if (isAtBottom) {
                 if (!self.classList.contains('sticky')) {
                     self.classList.add('sticky');
@@ -23,41 +23,114 @@
 
 <style>
     
-    /* main nav bar container style */
     #uj-navbar {
-        display: flex;
-        width: 100vw;
-        max-width: 100%;
-        background: #fff;
-        border-bottom: 1px solid var(--theme-color);
-        justify-content: space-between;
-        padding: .7vh 1.3vw;
-        box-shadow: 0 0 10px 5px rgba(0,0,0,.05);
-        z-index: 3;
-        transition: all .2s ease-in-out;
+        --navbar-height: 7vh;
     }
 
-    :global(#ultra-janitorial-nav-logo svg) {
-        width: 5vw;
-    }
+    /*=============================================
+    =            BaseStyle            =
+    =============================================*/
+    
+        /* main nav bar container style */
+        #uj-navbar {
+            display: flex;
+            width: 100vw;
+            height: var(--navbar-height);
+            background: #fff;
+            border-bottom: 2px solid var(--theme-color);
+            justify-content: space-between;
+            align-items: center;
+            padding: .7vh 1.3vw;
+            box-shadow: 0 0 10px 5px rgba(0,0,0,.05);
+            z-index: 3;
+            transition: all .2s ease-in-out;
+        }
 
-    :global(#uj-navbar.sticky){
-        position: fixed;   
-        top: 0;
-    }
+        :global(#ultra-janitorial-nav-logo svg) {
+            width: 5vw;
+        }
 
-    /* nav bar style */
-    #right-content {
-        display: flex;
-        width: 30%;
-        font-size: 1.5rem;
-        align-items: center;
+        :global(#uj-navbar.sticky){
+            position: fixed;   
+            top: 0;
+        }
+
+        /* nav bar style */
+        #right-content {
+            display: flex;
+            width: 30%;
+            font-size: 1.5rem;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        #right-content span {
+            cursor: pointer;
+            margin-right: 4em;
+        }
+
+    /*=====  End of BaseStyle  ======*/
+    
+    
+    /*=============================================
+    =            Desktop Only            =
+    =============================================*/
+    
+    @media (any-hover: hover) {
+
+        /* @keyframes expandBackground {
+            0% {
+
+        } */
+
+        #right-content span {
+            width: 30%;
+            display: flex;
+            height: var(--navbar-height);
+            justify-content: center;
+            align-items: center;
+            margin-right: 0;
+        }
+
+        #right-content span:hover {
+            
+        }
     }
     
-    #right-content span {
-        cursor: pointer;
-        margin-right: 4em;
-    }
+    /*=====  End of Desktop Only  ======*/
+    
+    
+    
+    /*=============================================
+    =            MobileSupport            =
+    =============================================*/
+        
+        @media screen and (max-width: 992px) {
+            #uj-navbar {
+                height: 6vh;
+                padding: 0 1.3vw;
+            }
+
+            :global(#ultra-janitorial-nav-logo svg) {
+                width: 18vw;
+            }
+
+            #right-content {
+                width: 70%;
+            }
+
+            #right-content span {
+                cursor: pointer;
+                margin-right: 2em;
+            }
+        }
+    
+    /*=====  End of MobileSupport  ======*/
+    
+    
+
+
+
 </style>
 
 <div bind:this={self} on:scroll={addSticky} id="uj-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">

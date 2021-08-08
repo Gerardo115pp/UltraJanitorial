@@ -1,4 +1,5 @@
 <script>
+    import TxyText from '../../../TxySvelte/txy_components/TxyText.svelte';
 
     // content props
     export let step_name = "Generic name";
@@ -6,7 +7,16 @@
     export let step_icon = "generic";
 
     // style props
-    export let width = "20%";
+    export let width = "";
+    export let extraClasses = "";
+
+    const composeStyle = () => {
+        let style = "";
+        if (width) {
+            style += `width: ${width};`;
+        }
+        return style;
+    };
 </script>
 
 <style>
@@ -22,7 +32,7 @@
     }
 
     .step-icon {
-        width: 4vw;
+        width: 20%;
         fill: papayawhip;
         margin-bottom: 1em;
     }
@@ -40,7 +50,7 @@
     }
 </style>
 
-<div style="width: {width};" class="cleaing-step">
+<div style="{composeStyle()}" class="cleaing-step {extraClasses}">
     <div class="step-icon">
         {@html step_icon}
     </div>
@@ -49,7 +59,10 @@
             {step_name}
         </h2>
         <p class="step-description">
-            {step_description}
+            <TxyText
+                content_key={step_name.replace(/\s/g, '_')}
+                fallback="{step_description}"
+            />
         </p>
     </div>
 </div>

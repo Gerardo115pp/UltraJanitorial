@@ -15,38 +15,82 @@ import { lorem } from '../../../Utilitys';
 </script>
 
 <style>
-    #why-ultra-janitorial {
-        max-height: 60vh;
-    }
 
-    .leads-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 5vh;
-        justify-content: space-around;
-        padding: 1rem;
-    }
+    
+    /*=============================================
+    =            BaseStyle            =
+    =============================================*/
+        
+        #why-ultra-janitorial {
+            max-height: 60vh;
+        }
 
-    .lead {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 22%;
-        min-height: 20vh;
-        font-size: 1.4rem;
-    }
+        .leads-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5vh;
+            justify-content: space-around;
+            padding: 1rem;
+        }
 
-    .lead-name {
-        height: 10vh;
-        width: 100%;
-        font-size: 1.8em;
-        font-weight: bold;
-        text-align: center;
-    }
+        .lead {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 22%;
+            min-height: 20vh;
+            font-size: 1.4rem;
+        }
 
-    .lead-text {
-        color: var(--secondary-color);
+        .lead-name {
+            height: 10vh;
+            width: 100%;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .lead-text {
+            color: var(--secondary-color);
+        }
+    
+    /*=====  End of BaseStyle  ======*/
+    
+    
+    /*=============================================
+    =            MobilSupport            =
+    =============================================*/
+    
+    @media only screen and (max-width: 767px) {
+        #why-ultra-janitorial {
+            max-height: 300vh;
+        }
+
+        .leads-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lead {
+            width: 90%;
+            min-height: 20vh;
+            font-size: 1.4rem;
+        }
+
+        .lead-name {
+            margin-top: 5vh;
+        }
+
+        .lead-text {
+            text-align: center;
+        }
     }
+    
+    /*=====  End of MobilSupport  ======*/
+    
+    
+
+
 </style>
 
 <section id="why-ultra-janitorial">

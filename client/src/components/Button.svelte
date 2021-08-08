@@ -10,7 +10,7 @@
     
     export let font_size = "1rem";
     export let padding = "0 5%";
-    export let width = "100%";
+    export let width = "";
     export let button_color = "var(--theme-color)";
     export let font_color = "white";
     
@@ -45,6 +45,26 @@
         }
         
         return class_name + " " + extraClasses;
+    }
+
+    const composeStyle = () => {
+        let style = "";
+        if (font_size) {
+            style += "font-size: " + font_size + ";";
+        }
+        if (padding) {
+            style += "padding: " + padding + ";";
+        }
+        if (width) {
+            style += "width: " + width + ";";
+        }
+        if (button_color) {
+            style += "background-color: " + button_color + ";";
+        }
+        if (font_color) {
+            style += "color: " + font_color + ";";
+        }
+        return style;
     }
 
 </script>

@@ -1,7 +1,14 @@
 import { txy_server } from "./TxyConf";
 
+export const composeImageUrl = ( partial_url ) => `http://${ txy_server }${ partial_url }`;
+
 export const getPageContent = (page) => {
     return fetch(`http://${txy_server}/content?page=${page}`, {method: 'GET'})
+            .then(response => response.json())
+}
+
+export const loadPages = () => {
+    return fetch(`http://${txy_server}/pages`, {method: 'GET'})
             .then(response => response.json())
 }
 
@@ -11,7 +18,7 @@ export const postFileContent = (page, file, name) => {
     form.append("page", page);
     form.append("name", name);
 
-    const request = new Request(`http://${txy_server}/images`, { method: 'POST', body: form });
+    const request = new Request(`http://${txy_server}/static/${page}`, { method: 'POST', body: form });
     return fetch(request).then(response => response.text());
 }
 

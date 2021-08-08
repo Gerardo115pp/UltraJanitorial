@@ -7,13 +7,17 @@
     import { push } from 'svelte-spa-router';
     import { lorem } from '../../Utilitys';
     import Txy from '../../TxySvelte/Txy';
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     
 
     const PAGE_NAME = "main";
     
     onMount(() => {
         Txy.setPageName(PAGE_NAME);
+    });
+
+    onDestroy(() => {
+        Txy.unsetPage();
     });
 
     const scrollToTop = () => {
@@ -24,24 +28,56 @@
 
 <style>
  
-    #main-page {
-        position: relative;
-        min-height: 100vh;
-    }
 
-    :global(.center-section) {
-        text-transform: capitalize;
-        text-align: center;
-        font-size: 2.6rem;
-    }
 
-    #home-services {
-        margin: 0 0 8rem;
-    }
+    
+    /*=============================================
+    =            BaseStyle            =
+    =============================================*/
+    
+        #main-page {
+            position: relative;
+            min-height: 100vh;
+        }
 
-    :global(.find-out-btn) {
-        margin-left: 10vw;
+        :global(.center-section) {
+            text-transform: capitalize;
+            text-align: center;
+            font-size: 2.6rem;
+        }
+
+        #home-services {
+            margin: 0 0 8rem;
+        }
+
+        :global(.find-out-btn) {
+            width: 20vw;
+            margin-left: 10vw;
+        }
+    
+    /*=====  End of BaseStyle  ======*/
+    
+    
+    /*=============================================
+    =            MobileStyle            =
+    =============================================*/
+    
+    @media only screen and (max-width: 800px) {
+    
+        #home-services {
+            margin: 0 0 4rem;
+        }
+
+        :global(.find-out-btn) {
+            width: 60vw;
+        }
     }
+    
+    /*=====  End of MobileStyle  ======*/
+    
+    
+
+
 </style>
 
 <div id="main-page" class="page-with-nav">
@@ -61,6 +97,6 @@
             service_description="{lorem(100)}"
             isFliped={true}
         />
-        <Button onClick={scrollToTop} button_color="var(--theme-gradiant)" width="20vw" label="FIND OUT MORE" font_size="2em" padding="1vh 1vw" extraClasses="find-out-btn"/>
+        <Button onClick={scrollToTop} button_color="var(--theme-gradiant)" label="FIND OUT MORE" font_size="2em" padding="1vh 1vw" extraClasses="find-out-btn"/>
     </div>
 </div>

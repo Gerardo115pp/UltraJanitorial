@@ -1,16 +1,17 @@
 <script>
     import { txy_state } from './TxyConf';
     import Txy, { txy_events, txy_types } from './Txy';
-import { bind } from 'svelte/internal';
-
+    
 
     export let font_family = 'Monospace';
     export let theme_color = 'yellowgreen';
+
 
     let is_showing = false;
     let content_type = "";
     let content_name = "";
     let content_text = "";
+    let page_name = "";
     let file_input = null;
 
 
@@ -23,6 +24,7 @@ import { bind } from 'svelte/internal';
 
     const handleGetContentEvent = (e) => {
         is_showing = true;
+        page_name = e.detail.page_name;
         content_type = e.detail.content_type;
         content_name = e.detail.content_name;
         content_text = e.detail.current_content;
@@ -30,7 +32,7 @@ import { bind } from 'svelte/internal';
 
     const handleTextContent = (e) => {
         if(e.key == "Enter"){
-            Txy.setContent(content_name, content_text);
+            Txy.setContent(content_name, content_text, page_name);
             reset();
         }
     }
@@ -39,10 +41,8 @@ import { bind } from 'svelte/internal';
         // get the image from the file input and encoded as blob
         const file = file_input.files[0];
         const reader = new FileReader();
-        reader.onload = (e) => {
-            const data = e.target.result;
-            alert("loaded");
-            Txy.setContentFromFile(file, content_name);
+        reader.onload = () => {
+            Txy.setContentFromFile(file, content_name, page_name);
             reset();
         }
         reader.readAsDataURL(file);
@@ -55,7 +55,7 @@ import { bind } from 'svelte/internal';
         content_text = "";
     }
 
-    document.addEventListener( txy_events.GET_CONTENT, handleGetContentEvent, false );
+    Txy.suscribe(txy_events.GET_CONTENT, handleGetContentEvent);
 
 </script>
 

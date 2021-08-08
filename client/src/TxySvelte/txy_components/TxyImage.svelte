@@ -1,4 +1,5 @@
 <script>
+    import { composeImageUrl } from '../TxyConnections';
     import Txy, { txy_events, txy_types } from '../Txy';
 
     export let fallback;
@@ -17,6 +18,8 @@
     } else {
         Txy.suscribe(txy_events.PAGE_READY, loadImageFromTxy, { once: true });
     }
+
+    Txy.suscribe(txy_events.CONTENT_CHANGE, loadImageFromTxy);
 </script>
 
 <style>
@@ -31,5 +34,5 @@
 </style>
 
 <div on:click={() => Txy.triggerContentGetter(content_key, txy_types.IMAGE)} class="txy_image_wrapper">
-    <img id="txy_image" src="{image_url}" alt="txy_image" />
+    <img class="txy_image" src="{composeImageUrl(image_url)}" alt="txy_image" />
 </div>

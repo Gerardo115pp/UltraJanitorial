@@ -38,6 +38,23 @@
     
     /*=====  End of Normalization  ======*/
     
+    
+    /*=============================================
+    =            Responsive Rules            =
+    =============================================*/
+    
+    @media screen and (max-width: 900px) {
+        #main-component {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+    }
+    
+    
+    /*=====  End of Responsive Rules  ======*/
+    
+    
+
     :global(.title-text) {
         font-weight: lighter;
         font-family: var(--title-font), sans-serif;

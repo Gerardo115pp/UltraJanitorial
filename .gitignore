@@ -3,3 +3,8 @@
 /**/node_modules/
 *.ttf
 /Txy_server/content/
+/**/build/
+/**/*content*/
+txy/
+Txy_server/Txy_server
+Txy_server/vendor/
