@@ -88,6 +88,9 @@ class TxyContent {
     }
     
     joinContent = (other, page_name) => {
+        if(!this.content.hasOwnProperty(page_name)) { 
+            this.content[page_name] = {};
+        }
         for (let key in other) {
             this.content[page_name][key] = other[key];
         }
