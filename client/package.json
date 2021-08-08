@@ -4,8 +4,8 @@
   "description": "Web site for ultra janitorial",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack serve --open --mode development",
+    "build": "webpack --mode production --env SERVER=34.136.125.104:5000",
+    "start": "webpack serve --open --mode development --env SERVER=192.168.1.79:5000",
     "expose": "webpack serve --open --mode development --host 0.0.0.0"
   },
   "repository": {

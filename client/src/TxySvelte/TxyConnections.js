@@ -8,6 +8,7 @@ export const getPageContent = (page) => {
 }
 
 export const loadPages = () => {
+    console.log(`Txy_server: ${txy_server}`)
     return fetch(`http://${txy_server}/pages`, {method: 'GET'})
             .then(response => response.json())
 }

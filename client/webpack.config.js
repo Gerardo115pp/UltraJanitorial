@@ -1,11 +1,9 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const webpack  = require('webpack');
 
-
-
-module.exports = {
+const config = {
 	entry: './src/index.js',
-	mode: 'development',
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'boundle.js'
@@ -61,3 +59,18 @@ module.exports = {
 		})
 	]
 }
+
+
+module.exports = (env, argv) => {
+	const isProd = argv.mode === 'production';
+	console.log(env)
+
+	config.plugins.push(
+		new webpack.DefinePlugin({
+			"TXY_SERVER": JSON.stringify(env.SERVER),
+		})
+	);
+
+	return config
+} 
+
